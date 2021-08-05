@@ -8,7 +8,7 @@ str(theamifile)
 def installmodules():
     os.system("pip3 install elevate")
     os.system("pip3 install requests")
-    os.system("pip install tkinter")
+    os.system("pip3 install tkinter")
     blabfjfh = open(theamifile, "w")
     blabfjfh.write("1")
     blabfjfh.close()
