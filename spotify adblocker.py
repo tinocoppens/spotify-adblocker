@@ -1,7 +1,7 @@
 import os
 import inspect, os.path
 filename = inspect.getframeinfo(inspect.currentframe()).filename
-path     = os.path.dirname(os.path.abspath(filename))
+path = os.path.dirname(os.path.abspath(filename))
 print(path)
 theamifile = path + "\AreModulesInstalled"
 str(theamifile)
