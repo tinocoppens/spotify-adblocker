@@ -22,30 +22,22 @@ from tkinter import ttk
 from elevate import elevate
 import requests
 elevate()
-def disableadservers(status):
-    if status == "on":
-        getadservers = requests.get("https://tinocoppens.github.io/hostslist/").text
-        importtohosts = open("C:/Windows/System32/drivers/etc/hosts", "w")
-        importtohosts.write(getadservers)
-        importtohosts.close
-    if status == "off":
-        os.remove("C:/Windows/System32/drivers/etc/hosts")
-        importtohosts = open("C:/Windows/System32/drivers/etc/hosts", "w")
-        importtohosts.write("")
-        importtohosts.close
-def home():
-    a = input("Typ on to enable spotify adblocker, typ off to disable spotify adblocker. : ")
-    if a == "on":
-        disableadservers("on")
-        print("Blocking ads.")
-    if a == "off":
-        disableadservers("off")
-        print("Ok.")
+def disableadservers():
+
+
+    getadservers = requests.get("https://tinocoppens.github.io/hostslist/index.html").text
+
+    importtohosts = open("C:/Windows/System32/drivers/etc/hosts", "w")
+    importtohosts.write(getadservers)
+    importtohosts.close
+def stop():
+    importtohosts = open("C:/Windows/System32/drivers/etc/hosts", "w")
+    importtohosts.write("")
+    importtohosts.close
+
 win = Tk()
 win.geometry("350x100")
 win.title("Spotify adblocker")
-button1= ttk.Button(win, text= "On", command=disableadservers("on"))
-button1.pack(side= TOP)
-button2= ttk.Button(win, text= "Off", command=disableadservers("off"))
-button2.pack(side=TOP)
+ttk.Button(win, text="On", command= disableadservers).pack(side=TOP)
+ttk.Button(win, text="Off", command= stop).pack(side=TOP)
 win.mainloop()
